@@ -9,8 +9,7 @@ public enum UnitOfTemperature implements IUnit {
     }
 
     @Override
-    public Double convertValue(Double valueOfUnit)
-    {
+    public Double convertValue(Double valueOfUnit) {
         if (this.equals(FAHRENHEIT))
             return (valueOfUnit - this.valueOfTemperature) * 5 / 9;
         return this.valueOfTemperature * valueOfUnit;

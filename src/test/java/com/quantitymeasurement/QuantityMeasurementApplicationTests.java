@@ -14,11 +14,11 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class QuantityMeasurementApplicationTests {
-    private String unit2;
-    private Double val1;
     private String unit1;
+    private Double val1;
+    private String unit2;
     private Double val2;
-    private ParameterDTO parameterBody;
+    private ParameterDTO parameterDTO;
 
     @Mock
     ConvertStringParameterIntoEnum stringParameterIntoEnum;
@@ -31,19 +31,19 @@ public class QuantityMeasurementApplicationTests {
         val1= 2.0;
         unit1="CENTIMETER";
         val2=2.0;
-        parameterBody = new ParameterDTO(unit1,val1,unit2,val2);
+        parameterDTO = new ParameterDTO(unit1,val1,unit2,val2);
 
     }
 
     @Test
-    void givenTwoSameUnits_WhenPassedFromControllerToCompare_ShouldReturnTrueStatement() {
+    public void givenTwoSameUnits_WhenPassedFromControllerToCompare_ShouldReturnTrueStatement() {
         when(stringParameterIntoEnum.doCompare(unit1,val1,unit2,val2)).thenReturn("is "+val1 + unit1 + " equal to " + val2 + unit2 +"? : true");
         String compareUnits = quantityMeasurementController.compareUnits(unit1, val1, unit2, val2);
         Assert.assertEquals("is 2.0CENTIMETER equal to 2.0CENTIMETER? : true",compareUnits);
     }
 
     @Test
-    void givenTwoDifferentUnits_WhenPassedFromControllerToCompare_ShouldReturnFalseStatement() {
+    public void givenTwoDifferentUnits_WhenPassedFromControllerToCompare_ShouldReturnFalseStatement() {
         unit1="CENTIMETER";
         val1=2.0;
         unit2="YARD";
@@ -54,7 +54,7 @@ public class QuantityMeasurementApplicationTests {
     }
 
     @Test
-    void givenTwoUnits_WhenPassedFromControllerToAdd_ShouldReturnAddition() {
+    public void givenTwoUnits_WhenPassedFromControllerToAdd_ShouldReturnAddition() {
         unit1="CENTIMETER";
         val1=2.0;
         unit2="CENTIMETER";
@@ -65,16 +65,16 @@ public class QuantityMeasurementApplicationTests {
     }
 
     @Test
-    void givenBodyOfParam_WhenPassedFromControllerToAdd_ShouldReturnAddition() {
-        when(stringParameterIntoEnum.doAddByBody(parameterBody)).thenReturn("Addition of " + val1 + unit1 + " & " + val2 + unit2 + " is equal to "+4.0);
-        String compareUnits = quantityMeasurementController.addUnits(parameterBody);
+    public void givenBodyOfParam_WhenPassedFromControllerToAdd_ShouldReturnAddition() {
+        when(stringParameterIntoEnum.doAddByBody(parameterDTO)).thenReturn("Addition of " + val1 + unit1 + " & " + val2 + unit2 + " is equal to "+4.0);
+        String compareUnits = quantityMeasurementController.addUnits(parameterDTO);
         Assert.assertEquals("Addition of " + val1 + unit1 + " & " + val2 + unit2 + " is equal to "+4.0,compareUnits);
     }
 
     @Test
-    void givenBodyOfParam_WhenPassedFromControllerToCompare_ShouldReturn() {
-        when(stringParameterIntoEnum.doCompareByBody(parameterBody)).thenReturn("is "+val1 + unit1 + " equal to " + val2 + unit2 +"? : true");
-        String compareUnits = quantityMeasurementController.compareUnits(parameterBody);
+    public void givenBodyOfParam_WhenPassedFromControllerToCompare_ShouldReturn() {
+        when(stringParameterIntoEnum.doCompareByBody(parameterDTO)).thenReturn("is "+val1 + unit1 + " equal to " + val2 + unit2 +"? : true");
+        String compareUnits = quantityMeasurementController.compareUnits(parameterDTO);
         Assert.assertEquals("is "+val1 + unit1 + " equal to " + val2 + unit2 +"? : true",compareUnits);
     }
 

@@ -1,7 +1,7 @@
 package com.quantitycompare.model;
 
 public enum UnitOfLength implements IUnit {
-    INCH(1), FEET(12), YARD(36), CENTI_METER(0.4);
+    INCH(1), FEET(12), YARD(36), CENTIMETER(0.4);
 
     public final double valueOfLength;
 

@@ -20,8 +20,8 @@ public class QuantityMeasurmentController {
     }
 
     @GetMapping("/compareByBody")
-    public String compareUnits(@RequestBody ParameterDTO paramBody) {
-        return parameterIntoEnum.doCompareByBody(paramBody);
+    public String compareUnits(@RequestBody ParameterDTO parameterDTO) {
+        return parameterIntoEnum.doCompareByBody(parameterDTO);
     }
 
     @GetMapping("/addByParam")

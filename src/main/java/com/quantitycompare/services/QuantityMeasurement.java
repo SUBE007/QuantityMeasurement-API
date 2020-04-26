@@ -3,7 +3,10 @@ package com.quantitycompare.services;
 import com.quantitycompare.exception.QuantityMeasurementException;
 import com.quantitycompare.model.IUnit;
 import com.quantitycompare.model.UnitOfTemperature;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class QuantityMeasurement {
 
     private Double value;

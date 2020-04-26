@@ -35,8 +35,7 @@ class MeasurementControllerTests {
             String doCompare = stringParameterIntoEnum.doCompare("INCH", 2.0, "INCH", 2.0);
             Assert.assertEquals("is "+2.0 +"INCH equal to " + 2.0 +"INCH ? :",doCompare);
         } catch (QuantityMeasurementException e) {
-            e.printStackTrace();
-        }
+            e.printStackTrace(); }
     }
 
 }

@@ -1,7 +1,7 @@
 package com.quantitycompare.model;
 
 public enum UnitOfVolume implements IUnit {
-    GALLON(3.78), LITRE(1.0), MILLI_LITRE(0.001);
+    GALLON(3.78), LITRE(1.0), MILLILITRE(0.001);
 
     public final double valueOfVolume;
 

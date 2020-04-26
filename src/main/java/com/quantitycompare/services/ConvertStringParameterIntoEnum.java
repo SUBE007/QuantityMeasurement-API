@@ -11,10 +11,12 @@ import org.springframework.stereotype.Service;
 public class ConvertStringParameterIntoEnum {
     IUnit unitFirst, unitSecond;
 
+
     @Autowired
     UnitContainer unitContainer;
+
     @Autowired
-    QuantityMeasurement quantityMeasurement;
+    QuantityMeasurement quantityMeasurement;//=new QuantityMeasurement();
 
     public String doCompare(String unit1, Double val1, String unit2, Double val2) {
         try {
@@ -38,12 +40,12 @@ public class ConvertStringParameterIntoEnum {
         }
     }
 
-    public String doCompareByBody(ParameterDTO paramBody) {
-        return doCompare(paramBody.getUnit1(),paramBody.getVal1(),paramBody.getUnit2(),paramBody.getVal2());
+    public String doCompareByBody(ParameterDTO parameterDTO) {
+        return doCompare(parameterDTO.getUnit1(),parameterDTO.getVal1(),parameterDTO.getUnit2(),parameterDTO.getVal2());
     }
 
-    public String doAddByBody(ParameterDTO paramBody) {
-        return doAdd(paramBody.getUnit1(),paramBody.getVal1(),paramBody.getUnit2(),paramBody.getVal2());
+    public String doAddByBody(ParameterDTO parameterDTO) {
+        return doAdd(parameterDTO.getUnit1(),parameterDTO.getVal1(),parameterDTO.getUnit2(),parameterDTO.getVal2());
     }
 
 
